@@ -1,9 +1,5 @@
 /* Const */
-import { COLOR } from '@/const/color'
-
-export const ARIA_LABEL = {
-  PROFILE: 'profile',
-} as const
+import { COLOR } from '@/const/color.const'
 
 export const IMAGE = {
   PATH: '/images/ryota.webp',

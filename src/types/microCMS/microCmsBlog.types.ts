@@ -1,5 +1,5 @@
-import { ICategory } from './category'
-import { ITag } from './tag'
+import { ICategory } from './microCmsCategory.types'
+import { ITag } from './microCmsTag.types'
 
 export interface IBlog {
   id: string

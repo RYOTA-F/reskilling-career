@@ -1,5 +1,5 @@
 /* Const */
-import { COLOR } from '@/const/color'
+import { COLOR } from '@/const/color.const'
 /* Types */
 import { ISvgDefaultProps } from '../types'
 

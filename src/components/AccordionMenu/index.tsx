@@ -2,10 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-/* Components */
 import { ChevronRightSvg } from '@/components/Elements/Svg'
-/* Const */
-import { ARIA_LABEL } from './const'
 
 interface Menu {
   label: string
@@ -30,16 +27,12 @@ export default function AccordionMenu({
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
       className="mx-2 text-[14px] relative"
-      aria-label={ARIA_LABEL.ACCORDION_MENU}
     >
       <Link href={path} className="block text-white">
         {label}
       </Link>
       {isOpen && menuList.length && (
-        <ul
-          className="bg-white absolute translate-x[25%] shadow-lg"
-          aria-label={ARIA_LABEL.MENU_CONTAINER}
-        >
+        <ul className="bg-white absolute translate-x[25%] shadow-lg">
           {menuList.map((v) => (
             <li key={v.label} className=" w-[200px]">
               <Link

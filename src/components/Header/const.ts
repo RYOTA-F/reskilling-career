@@ -1,6 +1,6 @@
 /* Const */
-import { META_DATA } from '@/const/meta'
-import { COLOR } from '@/const/color'
+import { META_DATA } from '@/const/meta.const'
+import { COLOR } from '@/const/color.const'
 
 export const HEADER = {
   HEIGHT: {
@@ -13,8 +13,4 @@ export const HEADER = {
     HEIGHT: 14,
     WIDTH: 14,
   },
-} as const
-
-export const ARIA_LABEL = {
-  HEADER: 'header',
 } as const

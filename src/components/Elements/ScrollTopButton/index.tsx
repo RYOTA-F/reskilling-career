@@ -1,10 +1,7 @@
 'use client'
 
 import { useState, useCallback, useEffect } from 'react'
-/* Components */
 import { ChevronRightSvg } from '@/components/Elements/Svg'
-/* Const */
-import { ARIA_LABEL, TOP_POSITION } from './const'
 
 export interface IScrollTopButton {
   forceView?: boolean
@@ -12,6 +9,7 @@ export interface IScrollTopButton {
 
 export default function ScrollTopButton({ forceView }: IScrollTopButton) {
   const [isView, setIsView] = useState(false)
+  const TOP_POSITION = 0 as const
 
   const onClickScrollTop = () => {
     window.scrollTo({
@@ -38,7 +36,6 @@ export default function ScrollTopButton({ forceView }: IScrollTopButton) {
         <button
           onClick={onClickScrollTop}
           className="h-[50px] w-[50px] pl-3 rounded-full text-center border-2 border-blue-main opacity-75 transform z-100 cursor-pointer fixed bottom-3 right-3 -rotate-90 bg-gray-list"
-          aria-label={ARIA_LABEL.SCROLL_TOP_BUTTON}
         >
           <ChevronRightSvg height={20} width={20} />
         </button>
@@ -46,5 +43,3 @@ export default function ScrollTopButton({ forceView }: IScrollTopButton) {
     </>
   )
 }
-
-export * from './const'

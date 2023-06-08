@@ -1,11 +1,8 @@
+import BlogCardList from '@/features/blogs/BlogCardList'
+import { getBlogs } from '@/usecases/microCMS/blog/getBlogs.usecase'
+
 export default async function TopPage() {
-  return (
-    <div className="flex w-full h-[100vh] justify-center items-center">
-      <div className="text-center">
-        <h1 className="text-3xl text-bold">Top Page</h1>
-        <br />
-        <h2>準備中...</h2>
-      </div>
-    </div>
-  )
+  const { blogs } = await getBlogs()
+
+  return <BlogCardList blogs={blogs} />
 }

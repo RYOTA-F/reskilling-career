@@ -1,14 +1,11 @@
 import Link from 'next/link'
 /* Const */
-import { SUB_MENU_LIST } from '@/const/menu'
-import { FOOTER, ARIA_LABEL } from './const'
+import { SUB_MENU_LIST } from '@/const/menu.const'
+import { FOOTER } from './const'
 
 export default function Footer() {
   return (
-    <footer
-      className="bg-gray-footer py-4 text-white"
-      aria-label={ARIA_LABEL.FOOTER}
-    >
+    <footer className="bg-gray-footer py-4 text-white">
       <ul className="flex justify-center">
         {SUB_MENU_LIST.map((v) => (
           <li

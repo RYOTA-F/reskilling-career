@@ -5,12 +5,12 @@ import { TwitterSvg } from '@/components/Elements/Svg'
 // import HamburgerMenu from '@/components/HamburgerMenu'
 // import Sidenav from '@/components/Sidenav'
 /* Const */
-import { PAGE } from '@/const/page'
-import { META_DATA } from '@/const/meta'
-import { TWITTER } from '@/const/twitter'
-import { HEADER, ARIA_LABEL } from './const'
+import { PAGE } from '@/const/page.const'
+import { META_DATA } from '@/const/meta.const'
+import { TWITTER } from '@/const/twitter.const'
+import { HEADER } from './const'
 /* Types */
-import { IGlobalMenu } from '@/types/globalMenu'
+import { IGlobalMenu } from '@/types/globalMenu.types'
 
 export default function Header() {
   const globalMenu: IGlobalMenu[] = [
@@ -45,10 +45,7 @@ export default function Header() {
         </ul>
       </div>
 
-      <header
-        className="sticky top-0 z-50 flex h-[72px] justify-between bg-blue-main px-[7%] tb:justify-center tb:h-[48px]"
-        aria-label={ARIA_LABEL.HEADER}
-      >
+      <header className="sticky top-0 z-50 flex h-[72px] justify-between bg-blue-main px-[7%] tb:justify-center tb:h-[48px]">
         <Link href={PAGE.ROOT}>
           <h1 className="inline-block cursor-pointer text-2xl font-bold leading-[72px] tb:leading-[48px] text-white no-underline">
             {META_DATA.TITLE}

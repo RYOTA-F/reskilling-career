@@ -1,5 +1,5 @@
-import { GOOGLE_FORM } from './contact'
-import { PAGE } from './page'
+import { GOOGLE_FORM } from './contact.const'
+import { PAGE } from './page.const'
 
 export const GROBAL_MENU = {
   FRONT_END: {

@@ -1,4 +1,4 @@
-import { IBlog } from './blog'
+import { IBlog } from './microCmsBlog.types'
 
 export interface ITag {
   id: string

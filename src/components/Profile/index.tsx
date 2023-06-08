@@ -4,11 +4,10 @@ import Image from 'next/image'
 import LinkButton from '@/components/Elements/LinkButton'
 import { TwitterSvg } from '@/components/Elements/Svg'
 /* Const */
-import { PAGE } from '@/const/page'
-import { TWITTER } from '@/const/twitter'
+import { PAGE } from '@/const/page.const'
+import { TWITTER } from '@/const/twitter.const'
 import {
   AUTHOR,
-  ARIA_LABEL,
   IMAGE,
   DESCRIPTION,
   DECORATION,
@@ -18,10 +17,7 @@ import {
 
 export default function Profile() {
   return (
-    <div
-      className="border border-gray-border p-4 text-center"
-      aria-label={ARIA_LABEL.PROFILE}
-    >
+    <div className="border border-gray-border p-4 text-center">
       <div className="mx-auto h-[120px] w-[120px] overflow-hidden rounded-full">
         <Link href={PAGE.PROFILE}>
           <Image
