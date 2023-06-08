@@ -1,6 +1,4 @@
-import type { NextPage } from 'next'
-
-const Home: NextPage = () => {
+export default function Top() {
   return (
     <div className="flex w-full h-[100vh] justify-center items-center">
       <div className="text-center">
@@ -11,5 +9,3 @@ const Home: NextPage = () => {
     </div>
   )
 }
-
-export default Home
