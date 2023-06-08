@@ -1,17 +1,31 @@
-import { FC } from 'react'
 import Link from 'next/link'
-// /* Components */
-// import AccordionMenu from '@/components/AccordionMenu'
-// import { TwitterSvg } from '@/components/Elements/Svg'
+/* Components */
+import AccordionMenu from '@/components/AccordionMenu'
+import { TwitterSvg } from '@/components/Elements/Svg'
 // import HamburgerMenu from '@/components/HamburgerMenu'
 // import Sidenav from '@/components/Sidenav'
-// /* Const */
-// import { SITE, PAGE, TWITTER } from '@/const/index'
+/* Const */
+import { PAGE } from '@/const/page'
+import { META_DATA } from '@/const/meta'
+import { TWITTER } from '@/const/twitter'
 import { HEADER, ARIA_LABEL } from './const'
-/* Hooks */
-// import useCommonData from '@/hooks/useCommonData'
+/* Types */
+import { IGlobalMenu } from '@/types/globalMenu'
 
 export default function Header() {
+  const globalMenu: IGlobalMenu[] = [
+    {
+      label: 'エンジニア',
+      url: 'categories/engineer',
+      children: [{ label: 'プログラミング', url: 'categories/programing' }],
+    },
+    {
+      label: 'MBA',
+      url: 'categories/mba',
+      children: [{ label: 'Globis', url: 'categories/globis' }],
+    },
+  ]
+
   return (
     <>
       <div className="flex justify-between h-[22px] px-[7%] bg-blue-main tb:hidden">
@@ -20,13 +34,13 @@ export default function Header() {
         </span>
         <ul className="flex">
           <li className="flex justify-center items-center py-1 h-[22px] w-[22px]">
-            {/* <Link href={TWITTER.URL} target="_blank">
+            <Link href={TWITTER.URL} target="_blank">
               <TwitterSvg
                 height={HEADER.ICON.HEIGHT}
                 width={HEADER.ICON.WIDTH}
                 color={HEADER.ICON.COLOR}
-              /> */}
-            {/* </Link> */}
+              />
+            </Link>
           </li>
         </ul>
       </div>
@@ -35,14 +49,14 @@ export default function Header() {
         className="sticky top-0 z-50 flex h-[72px] justify-between bg-blue-main px-[7%] tb:justify-center tb:h-[48px]"
         aria-label={ARIA_LABEL.HEADER}
       >
-        {/* <Link href={PAGE.ROOT}>
+        <Link href={PAGE.ROOT}>
           <h1 className="inline-block cursor-pointer text-2xl font-bold leading-[72px] tb:leading-[48px] text-white no-underline">
-            {SITE.TITLE}
+            {META_DATA.TITLE}
           </h1>
-        </Link> */}
+        </Link>
 
         <ul className="flex h-[100%] leading-[72px] text-white tb:hidden">
-          {/* {globalMenu.map((v) => (
+          {globalMenu.map((v) => (
             <li key={v.label}>
               <AccordionMenu
                 label={v.label}
@@ -53,7 +67,7 @@ export default function Header() {
                 }))}
               />
             </li>
-          ))} */}
+          ))}
         </ul>
 
         <div className="pc:hidden">
@@ -64,5 +78,3 @@ export default function Header() {
     </>
   )
 }
-
-export * from './const'

@@ -4,5 +4,5 @@ export const ARIA_LABEL = {
 
 export const FOOTER = {
   COPY_MARK: '©',
-  COPY_TEXT: 'リスキリング・キャリア',
+  COPY_TEXT: 'Reskilling Career',
 } as const

@@ -7,7 +7,7 @@ import ScrollTopButton from '@/components/Elements/ScrollTopButton'
 import '/public/globals.css'
 
 export const metadata = {
-  title: 'リスキリング・キャリア',
+  title: 'Reskilling Career',
   description: 'リスキリングを通じてキャリアを変える',
 }
 
