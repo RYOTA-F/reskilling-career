@@ -1,6 +1,9 @@
 import BlogCardList from '@/features/blogs/BlogCardList'
+import { MicroCmsBlogUsecase } from '@/usecases/microCMS/blog/getBlogs.usecase'
 
 export default async function TopPage() {
-  // @ts-expect-error Server Component
-  return <BlogCardList />
+  const microCmsBlogUsecase = new MicroCmsBlogUsecase()
+  const { blogs } = await microCmsBlogUsecase.getBlogs()
+
+  return <BlogCardList blogs={blogs} />
 }

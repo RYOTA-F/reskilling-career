@@ -1,10 +1,11 @@
 import BlogCard from '@/features/blogs/BlogCard'
-import { MicroCmsBlogUsecase } from '@/usecases/microCMS/blog/getBlogs.usecase'
+import { IBlog } from '@/types/microCMS/microCmsBlog.types'
 
-export default async function BlogCardList() {
-  const microCmsBlogUsecase = new MicroCmsBlogUsecase()
-  const { blogs } = await microCmsBlogUsecase.getBlogs()
+interface IBlogCardList {
+  blogs: IBlog[]
+}
 
+export default function BlogCardList({ blogs }: IBlogCardList) {
   return (
     <article>
       <ul className="w-[100%] -mt-5 tb:mt-0 flex flex-wrap sp:block">
