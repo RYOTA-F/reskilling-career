@@ -1,9 +1,7 @@
-/* Components */
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Profile from '@/components/Profile'
 import ScrollTopButton from '@/components/Elements/ScrollTopButton'
-/* Styles */
 import '/public/globals.css'
 
 export const metadata = {

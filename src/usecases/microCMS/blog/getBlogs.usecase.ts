@@ -1,11 +1,19 @@
 import { MicroCmsClientBlog } from '@/clients/microCms/blogs.client'
 
-export const getBlogs = async () => {
-  const client = new MicroCmsClientBlog()
-  const res = await client.getBlogs()
+export class MicroCmsBlogUsecase {
+  private readonly client: MicroCmsClientBlog
 
-  return {
-    blogs: res.contents,
-    totalCount: res.totalCount,
+  constructor() {
+    this.client = new MicroCmsClientBlog()
+  }
+
+  /** ブログ一覧取得 */
+  getBlogs = async () => {
+    const res = await this.client.getBlogs()
+
+    return {
+      blogs: res.contents,
+      totalCount: res.totalCount,
+    }
   }
 }
