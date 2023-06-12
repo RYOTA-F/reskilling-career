@@ -5,6 +5,7 @@ import { apiEndpoint } from './clientMictoCms.endpoint'
 export class MicroCmsClientCategory {
   /** カテゴリ一覧取得 */
   getCategories = async (): Promise<ICategoryApiResponse> => {
-    return await (await fetch(apiEndpoint('categories'), API_HEADER)).json()
+    const res = await fetch(apiEndpoint('categories'), API_HEADER)
+    return await res.json()
   }
 }

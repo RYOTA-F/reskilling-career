@@ -9,11 +9,7 @@ export const metadata = {
   description: 'リスキリングを通じてキャリアを変える',
 }
 
-export default async function Layout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
       <body>

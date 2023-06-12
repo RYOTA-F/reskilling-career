@@ -16,4 +16,9 @@ export class MicroCmsBlogUsecase {
       totalCount: res.totalCount,
     }
   }
+
+  /** IDを指定しブログを一件取得 */
+  getBlogByID = async (id: string) => {
+    return await this.client.getBlogByID(id)
+  }
 }
