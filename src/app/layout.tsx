@@ -2,7 +2,6 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Profile from '@/components/Profile'
 import ScrollTopButton from '@/components/Elements/ScrollTopButton'
-import { MicroCmsCategoryUsecase } from '@/usecases/microCMS/categories/getCategories.usecase'
 import '/public/globals.css'
 
 export const metadata = {
@@ -15,13 +14,11 @@ export default async function Layout({
 }: {
   children: React.ReactNode
 }) {
-  const microCmsCategoryUsecase = new MicroCmsCategoryUsecase()
-  const globalMenu = await microCmsCategoryUsecase.getGlobalMenu()
-
   return (
     <html lang="ja">
       <body>
-        <Header globalMenu={globalMenu} />
+        {/* @ts-expect-error */}
+        <Header />
         <main className="max-w-full overflow-x-hidden">
           <div className="flex justify-between py-[60px] tb:pt-5 px-[5%] tb:block sp:block">
             <div className="min-w-[75%] mr-8 tb:mr-0">{children}</div>
