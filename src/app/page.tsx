@@ -1,5 +1,5 @@
 import BlogCardList from '@/features/blogs/BlogCardList'
-import { MicroCmsBlogUsecase } from '@/usecases/microCMS/blog/getBlogs.usecase'
+import { MicroCmsBlogUsecase } from '@/usecases/microCMS/blogs/getBlogs.usecase'
 
 export default async function TopPage() {
   const microCmsBlogUsecase = new MicroCmsBlogUsecase()

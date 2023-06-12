@@ -13,6 +13,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
       <body>
+        {/* @ts-expect-error Server Component */}
         <Header />
         <main className="max-w-full overflow-x-hidden">
           <div className="flex justify-between py-[60px] tb:pt-5 px-[5%] tb:block sp:block">

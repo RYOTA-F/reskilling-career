@@ -1,30 +1,18 @@
 import Link from 'next/link'
-/* Components */
 import AccordionMenu from '@/components/AccordionMenu'
 import { TwitterSvg } from '@/components/Elements/Svg'
 // import HamburgerMenu from '@/components/HamburgerMenu'
 // import Sidenav from '@/components/Sidenav'
-/* Const */
 import { PAGE } from '@/const/page.const'
 import { META_DATA } from '@/const/meta.const'
 import { TWITTER } from '@/const/twitter.const'
-import { HEADER } from './const'
-/* Types */
 import { IGlobalMenu } from '@/types/globalMenu.types'
+import { MicroCmsCategoryUsecase } from '@/usecases/microCMS/categories/getCategories.usecase'
+import { HEADER } from './const'
 
-export default function Header() {
-  const globalMenu: IGlobalMenu[] = [
-    {
-      label: 'エンジニア',
-      url: 'categories/engineer',
-      children: [{ label: 'プログラミング', url: 'categories/programing' }],
-    },
-    {
-      label: 'MBA',
-      url: 'categories/mba',
-      children: [{ label: 'Globis', url: 'categories/globis' }],
-    },
-  ]
+export default async function Header() {
+  const microCmsCategoryUsecase = new MicroCmsCategoryUsecase()
+  const globalMenu = await microCmsCategoryUsecase.getGlobalMenu()
 
   return (
     <>

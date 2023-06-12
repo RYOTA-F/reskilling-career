@@ -2,31 +2,6 @@ import { GOOGLE_FORM } from './contact.const'
 import { PAGE } from './page.const'
 
 export const GROBAL_MENU = {
-  FRONT_END: {
-    LABEL: 'フロントエンド',
-    URL: `${PAGE.CATEGORY}front-end`,
-    LIST: [],
-  },
-  BACK_END: {
-    LABEL: 'バックエンド',
-    URL: `${PAGE.CATEGORY}back-end`,
-    LIST: [],
-  },
-  INFRA: {
-    LABEL: 'インフラ',
-    URL: `${PAGE.CATEGORY}infra`,
-    LIST: [],
-  },
-  EVENT: {
-    LABEL: 'イベント',
-    URL: `${PAGE.CATEGORY}event`,
-    LIST: [],
-  },
-  ETC: {
-    LABEL: 'エトセトラ',
-    URL: `${PAGE.CATEGORY}etc`,
-    LIST: [],
-  },
   SITE_MAP: {
     LABEL: 'サイトマップ',
     URL: PAGE.SITE_MAP,
