@@ -6,13 +6,8 @@ import { TwitterSvg } from '@/components/Elements/Svg'
 import { PAGE } from '@/const/page.const'
 import { META_DATA } from '@/const/meta.const'
 import { TWITTER } from '@/const/twitter.const'
-import { IGlobalMenu } from '@/types/globalMenu.types'
 import { MicroCmsCategoryUsecase } from '@/usecases/microCMS/categories/getCategories.usecase'
 import { HEADER } from './const'
-
-interface IHeader {
-  globalMenu: IGlobalMenu[]
-}
 
 export default async function Header() {
   const microCmsCategoryUsecase = new MicroCmsCategoryUsecase()
