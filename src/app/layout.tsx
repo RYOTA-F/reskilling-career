@@ -2,6 +2,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Profile from '@/components/Profile'
 import ScrollTopButton from '@/components/Elements/ScrollTopButton'
+import { MicroCmsCategoryUsecase } from '@/usecases/microCMS/categories/getCategories.usecase'
 import '/public/globals.css'
 
 export const metadata = {
@@ -9,12 +10,18 @@ export const metadata = {
   description: 'リスキリングを通じてキャリアを変える',
 }
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default async function Layout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  const microCmsCategoryUsecase = new MicroCmsCategoryUsecase()
+  const globalMenu = await microCmsCategoryUsecase.getGlobalMenu()
+
   return (
     <html lang="ja">
       <body>
-        {/* @ts-expect-error Server Component */}
-        <Header />
+        <Header globalMenu={globalMenu} />
         <main className="max-w-full overflow-x-hidden">
           <div className="flex justify-between py-[60px] tb:pt-5 px-[5%] tb:block sp:block">
             <div className="min-w-[75%] mr-8 tb:mr-0">{children}</div>
