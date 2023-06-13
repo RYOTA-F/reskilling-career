@@ -1,5 +1,5 @@
 import { MicroCmsClientBlog } from '@/clients/microCms/blogs.client'
-
+import { perseBlogBody } from '@/libs/cheerio'
 export class MicroCmsBlogUsecase {
   private readonly client: MicroCmsClientBlog
 
@@ -19,6 +19,9 @@ export class MicroCmsBlogUsecase {
 
   /** IDを指定しブログを一件取得 */
   getBlogByID = async (id: string) => {
-    return await this.client.getBlogByID(id)
+    const res = await this.client.getBlogByID(id)
+    const { body, tableOfContents } = await perseBlogBody(res.body)
+
+    return { blog: res, body, tableOfContents }
   }
 }

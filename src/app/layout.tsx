@@ -2,11 +2,12 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Profile from '@/components/Profile'
 import ScrollTopButton from '@/components/Elements/ScrollTopButton'
+import '/public/blogBody.css'
 import '/public/globals.css'
 
 export const metadata = {
   title: 'Reskilling Career',
-  description: 'リスキリングを通じてキャリアを変える',
+  description: 'リスキリングでキャリアを変える',
 }
 
 export default function Layout({ children }: { children: React.ReactNode }) {

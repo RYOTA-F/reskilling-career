@@ -7,10 +7,10 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { slug } = context.params
   const microCmsBlogUsecase = new MicroCmsBlogUsecase()
-  const { title, description } = await microCmsBlogUsecase.getBlogByID(slug)
+  const { blog } = await microCmsBlogUsecase.getBlogByID(slug)
 
   return {
-    title,
-    description,
+    title: blog.title,
+    description: blog.description,
   }
 }
