@@ -5,21 +5,12 @@ import CategoryList from '@/features/categories/CategoryList'
 import TagList from '@/features/tags/TagList'
 import { IBlog, ITableOfContents } from '@/types/microCMS/microCmsBlog.types'
 import { formatDate } from '@/libs/dayjs'
+import { BLOG_DETAIL, IMAGE, TIME_ICON_SIZE } from './const'
 
 interface IBlogDetailHeader {
   blog: IBlog
   tableOfContents: ITableOfContents[]
 }
-
-export const BLOG_DETAIL = {
-  WELCOME_MESSAGE: 'こんにちは! RYOTAです!',
-  THANKS_MESSAGE: '当記事をご覧くださりありがとうございます!',
-} as const
-const IMAGE = {
-  WIDTH: 844,
-  HEIGHT: 474,
-} as const
-const TIME_ICON_SIZE = 16 as const
 
 export default function BlogDetailHeader({
   blog,
