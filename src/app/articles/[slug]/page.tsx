@@ -13,14 +13,13 @@ export interface IArticlesPageContext {
 export default async function ArticlesPage(context: IArticlesPageContext) {
   const { slug } = context.params
   const microCmsBlogUsecase = new MicroCmsBlogUsecase()
-  const { blog, body, tableOfContents } = await microCmsBlogUsecase.getBlogByID(
-    slug
-  )
+  const { blog, persedBody, tableOfContents } =
+    await microCmsBlogUsecase.getBlogByID(slug)
 
   return (
     <>
       <BlogDetailHeader blog={blog} tableOfContents={tableOfContents} />
-      <BlogBody blogBody={body} />
+      <BlogBody blogBody={persedBody} />
     </>
   )
 }

@@ -33,7 +33,7 @@ export const perseBlogBody = async (contents: IBlog['body']) => {
       type: element.name,
     }))
 
-  return { body: $.html(), tableOfContents }
+  return { persedBody: $.html(), tableOfContents }
 }
 
 /**

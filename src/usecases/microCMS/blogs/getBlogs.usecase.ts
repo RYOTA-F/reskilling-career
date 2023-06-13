@@ -20,8 +20,8 @@ export class MicroCmsBlogUsecase {
   /** IDを指定しブログを一件取得 */
   getBlogByID = async (id: string) => {
     const res = await this.client.getBlogByID(id)
-    const { body, tableOfContents } = await perseBlogBody(res.body)
+    const { persedBody, tableOfContents } = await perseBlogBody(res.body)
 
-    return { blog: res, body, tableOfContents }
+    return { blog: res, persedBody, tableOfContents }
   }
 }
