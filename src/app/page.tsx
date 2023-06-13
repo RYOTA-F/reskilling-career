@@ -1,6 +1,6 @@
 import BlogCardList from '@/features/blogs/BlogCardList'
 
-export default async function TopPage() {
+export default function TopPage() {
   // @ts-ignore
   return <BlogCardList />
 }
