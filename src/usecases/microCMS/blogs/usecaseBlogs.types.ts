@@ -8,6 +8,7 @@ import type {
 export interface IGetBlogsParams {
   limit?: boolean
   offset?: number
+  filters?: string
 }
 
 export interface IGetBlogsResponse {

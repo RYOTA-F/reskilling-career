@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { MicroCmsBlogUsecase } from '@/usecases/microCMS/blogs/getBlogs.usecase'
+import { MicroCmsBlogUsecase } from '@/usecases/microCMS/blogs/usecaseBlogs.usecase'
 import { IArticlesPageContext } from './page'
 
 export async function generateMetadata(

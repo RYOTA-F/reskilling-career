@@ -1,6 +1,6 @@
 import BlogDetailHeader from '@/features/blogs/BlogDetailHeader'
 import BlogBody from '@/features/blogs/BlogBody'
-import { MicroCmsBlogUsecase } from '@/usecases/microCMS/blogs/getBlogs.usecase'
+import { MicroCmsBlogUsecase } from '@/usecases/microCMS/blogs/usecaseBlogs.usecase'
 import { generateStaticParams } from './generateStaticParams'
 import { generateMetadata } from './generateMetadata'
 
