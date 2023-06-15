@@ -6,7 +6,7 @@ import { TwitterSvg } from '@/components/Elements/Svg'
 import { PAGE } from '@/const/page.const'
 import { META_DATA } from '@/const/meta.const'
 import { TWITTER } from '@/const/twitter.const'
-import { MicroCmsCategoryUsecase } from '@/usecases/microCMS/categories/getCategories.usecase'
+import { MicroCmsCategoryUsecase } from '@/usecases/microCMS/categories/usecaseCategories.usecase'
 import { HEADER } from './const'
 
 export default async function Header() {

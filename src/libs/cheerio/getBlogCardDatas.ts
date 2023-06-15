@@ -1,40 +1,5 @@
-// @ts-nocheck
 import cheerio from 'cheerio'
-import hljs from 'highlight.js'
-import { IBlog, IBlogCardData, ITableOfContents } from '@/types/index'
-import { getBlogCardDom } from '@/utils/blogCard'
-
-/**
- * 投稿本文をパース
- */
-export const perseBlogBody = async (contents: IBlog['body']) => {
-  const $ = cheerio.load(contents, { _useHtmlParser2: true })
-
-  // コードブロックをパース
-  $('pre code').each((_, element) => {
-    const result = hljs.highlightAuto($(element).text())
-    $(element).html(result.value)
-    $(element).addClass('hljs')
-  })
-
-  // ブログカード情報を取得
-  const blogCardDatas = await getBlogCardDatas($.html())
-  // ブログカードにパース
-  $('a').each((i, element) => {
-    $(element).replaceWith(getBlogCardDom(blogCardDatas[i]))
-  })
-
-  // 目次を取得
-  const tableOfContents: ITableOfContents[] = $('h2, h3')
-    .toArray()
-    .map((element: cheerio.Element) => ({
-      id: element.attribs.id,
-      text: element.children[0].data,
-      type: element.name,
-    }))
-
-  return { persedBody: $.html(), tableOfContents }
-}
+import { IBlog, IBlogCardData } from '@/types/microCMS/microCmsBlog.types'
 
 /**
  * ブログカード情報を取得
@@ -47,10 +12,13 @@ export const getBlogCardDatas = async (contents: IBlog['body']) => {
     .map((data) => {
       // urlをhttps://~形式に
       const url =
+        // @ts-ignore
         data.attribs.href.indexOf('http') === -1 &&
         process.env.NEXT_PUBLIC_DOMEIN
-          ? `${process.env.NEXT_PUBLIC_DOMEIN}${data.attribs.href}` // eslint-disable-line
-          : data.attribs.href
+          ? // @ts-ignore
+            `${process.env.NEXT_PUBLIC_DOMEIN}${data.attribs.href}` // eslint-disable-line
+          : // @ts-ignore
+            data.attribs.href
       return { url: url }
     })
 
@@ -71,21 +39,31 @@ export const getBlogCardDatas = async (contents: IBlog['body']) => {
           for (let i = 0; i < metas.length; i++) {
             // タイトル
             if (
+              // @ts-ignore
               metas[i].attribs?.property === 'og:title' ||
+              // @ts-ignore
               metas[i].attribs?.name === 'twitter:title'
             )
+              // @ts-ignore
               metaData.title = metas[i].attribs.content
             // 説明
+            // @ts-ignore
             if (metas[i].attribs?.property === 'og:description')
+              // @ts-ignore
               metaData.description = metas[i].attribs.content
             // 画像
             if (
+              // @ts-ignore
               metas[i].attribs?.property === 'og:image' ||
+              // @ts-ignore
               metas[i].attribs?.name === 'twitter:image'
             )
+              // @ts-ignore
               metaData.image = metas[i].attribs.content
             // サイト名
+            // @ts-ignore
             if (metas[i].attribs?.property === 'og:site_name')
+              // @ts-ignore
               metaData.site = metas[i].attribs.content
           }
           return metaData

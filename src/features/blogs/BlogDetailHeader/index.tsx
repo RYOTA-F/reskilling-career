@@ -4,7 +4,7 @@ import TableOfContents from '@/components/TableOfContents'
 import CategoryList from '@/features/categories/CategoryList'
 import TagList from '@/features/tags/TagList'
 import { IBlog, ITableOfContents } from '@/types/microCMS/microCmsBlog.types'
-import { formatDate } from '@/libs/dayjs'
+import { formatDate } from '@/libs/dayjs/formatDate'
 import { BLOG_DETAIL, IMAGE, TIME_ICON_SIZE } from './const'
 
 interface IBlogDetailHeader {
