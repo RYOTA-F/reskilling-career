@@ -2,7 +2,6 @@ import { GROBAL_MENU } from '@/const/menu.const'
 import { PAGE } from '@/const/page.const'
 import { MicroCmsClientCategory } from '@/clients/microCms/categories.client'
 import { IGlobalMenu } from '@/types/globalMenu.types'
-import { ICategory } from '@/types/microCMS/microCmsCategory.types'
 
 export class MicroCmsCategoryUsecase {
   private readonly client: MicroCmsClientCategory
@@ -11,15 +10,34 @@ export class MicroCmsCategoryUsecase {
     this.client = new MicroCmsClientCategory()
   }
 
-  /** グローバルメニュー取得 */
+  /**
+   * IDを指定しカテゴリを一件取得
+   */
+  getCategoryByID = async (id: string) => {
+    const category = await this.client.getCategoryByID(id)
+    return { category }
+  }
+
+  /**
+   * カテゴリ一覧取得
+   */
+  getCategories = async () => {
+    const res = await this.client.getCategories()
+    return res.contents
+  }
+
+  /**
+   * グローバルメニュー取得
+   */
   getGlobalMenu = async () => {
     const categoryMenu = await this.getCategoryMenu()
     const fixedMenu = this.getFixedMenu()
-
     return [...categoryMenu, ...fixedMenu]
   }
 
-  /** カテゴリメニュー取得 */
+  /**
+   * カテゴリメニュー取得
+   */
   getCategoryMenu = async () => {
     const res = await this.client.getCategories()
     const categories = res.contents
@@ -53,7 +71,9 @@ export class MicroCmsCategoryUsecase {
     }))
   }
 
-  /** 固定メニュー取得 */
+  /**
+   * 固定メニュー取得
+   */
   getFixedMenu = (): IGlobalMenu[] => {
     return [
       {
