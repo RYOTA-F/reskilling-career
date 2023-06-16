@@ -1,9 +1,11 @@
+import { Suspense } from 'react'
 import Header from '@/components/Header'
+import BreadCrumb from '@/components/BreadCrumb'
 import Footer from '@/components/Footer'
 import Profile from '@/components/Profile'
 import ScrollTopButton from '@/components/Elements/ScrollTopButton'
-import '/public/blogBody.css'
-import '/public/globals.css'
+import '/public/styles/blogBody.css'
+import '/public/styles/globals.css'
 
 export const metadata = {
   title: 'Reskilling Career',
@@ -16,6 +18,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <body>
         {/* @ts-ignore */}
         <Header />
+        <Suspense>
+          {/* @ts-ignore */}
+          <BreadCrumb />
+        </Suspense>
         <main className="max-w-full overflow-x-hidden">
           <div className="flex justify-between py-[60px] tb:pt-5 px-[5%] tb:block sp:block">
             <div className="min-w-[75%] mr-8 tb:mr-0">{children}</div>
@@ -25,9 +31,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </main>
         {/* <Seo {...seoData} /> */}
-
-        {/* <BreadCrumb /> */}
-
         <ScrollTopButton />
         <Footer />
       </body>

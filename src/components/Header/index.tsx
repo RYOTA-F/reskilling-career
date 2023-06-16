@@ -6,12 +6,11 @@ import { TwitterSvg } from '@/components/Elements/Svg'
 import { PAGE } from '@/const/page.const'
 import { META_DATA } from '@/const/meta.const'
 import { TWITTER } from '@/const/twitter.const'
-import { MicroCmsCategoryUsecase } from '@/usecases/microCMS/categories/usecaseCategories.usecase'
 import { HEADER } from './const'
+import { getGlobalMenu } from './logic/getGlobalMenu'
 
 export default async function Header() {
-  const microCmsCategoryUsecase = new MicroCmsCategoryUsecase()
-  const globalMenu = await microCmsCategoryUsecase.getGlobalMenu()
+  const globalMenu = await getGlobalMenu()
 
   return (
     <>
