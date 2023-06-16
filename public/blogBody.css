@@ -2,6 +2,10 @@
 
 @layer components {
   /* h2 */
+  .blogBody {
+    color: #63707b;
+  }
+
   .blogBody > h2 {
     margin: 48px 0;
     padding: 16px 24px;

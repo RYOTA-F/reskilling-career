@@ -1,6 +1,6 @@
 import { ITag, ITagApiResponse } from '@/types/microCMS/microCmsTag.types'
-import { API_HEADER } from './clientMicroCms.const'
-import { apiEndpoint } from './clientMictoCms.endpoint'
+import { API_HEADER } from './settings/clientMicroCms.const'
+import { apiEndpoint } from './settings/clientMictoCms.endpoint'
 
 export class MicroCmsClientTag {
   /**
