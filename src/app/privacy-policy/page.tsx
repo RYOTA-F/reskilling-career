@@ -1,4 +1,4 @@
-import PrivacyPolicyDetail from '@/features/fixedPages/PrivacyPolicy'
+import PrivacyPolicyDetail from '@/features/fixedPages/PrivacyPolicyDetail'
 import { generateMetadata } from './generateMetadata'
 
 export default function PrivacyPolicyPage() {

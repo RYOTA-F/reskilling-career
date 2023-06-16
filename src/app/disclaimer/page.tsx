@@ -1,4 +1,4 @@
-import DisclaimerDetail from '@/features/fixedPages/Disclaimer'
+import DisclaimerDetail from '@/features/fixedPages/DisclaimerDetail'
 import { generateMetadata } from './generateMetadata'
 
 export default function DisclaimerPage() {
