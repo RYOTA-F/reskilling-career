@@ -1,17 +1,19 @@
-'use client'
+// 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+// import { usePathname } from 'next/navigation'
 import { HomeSvg } from '@/components/Elements/Svg'
 import { PAGE } from '@/const/page.const'
+import { IBreadCrumb } from '@/types/microCMS/microCmsBlog.types'
 import { BREAD_CRUMB } from './const'
 import { getBreadCrumb } from './logic/getBreadCrumb'
 
 export default async function BreadCrumb() {
-  const pathname = usePathname()
+  // const pathname = usePathname()
+  const pathname = '/articles/if9f-hn4m'
   const breadCrumb = await getBreadCrumb(pathname)
 
-  if (pathname === PAGE.ROOT) return null
+  // if (pathname === PAGE.ROOT) return null
 
   return (
     <>
