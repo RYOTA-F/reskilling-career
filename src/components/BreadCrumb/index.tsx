@@ -1,4 +1,4 @@
-'use client'
+// 'use client'
 
 import { Suspense } from 'react'
 import Link from 'next/link'
@@ -12,12 +12,20 @@ import { getBreadCrumb } from './logic/getBreadCrumb'
 export default async function BreadCrumb() {
   // const pathname = usePathname()
   const fetchPath = '/articles/if9f-hn4m'
-  const breadCrumb = await getBreadCrumb(fetchPath)
+  // const breadCrumb = await getBreadCrumb(fetchPath)
+
+  const breadCrumb: IBreadCrumb = {
+    categoryParentId: '1',
+    categoryParentName: 'カテゴリー親',
+    categoryChildId: '2',
+    categoryChildName: 'カテゴリー子',
+    currentName: '現在のページ',
+  }
 
   // if (pathname === PAGE.ROOT) return null
 
   return (
-    <Suspense fallback={<div>hogehoge</div>}>
+    <>
       {breadCrumb && (
         <ol className="flex items-center py-2 pl-[7%] sp:pl-[3%] bg-gray-list shadow-inherit text-[12px] text-gray-text-t1 whitespace-nowrap overflow-x-hidden sp:overflow-x-scroll">
           <li>
@@ -65,6 +73,6 @@ export default async function BreadCrumb() {
           )}
         </ol>
       )}
-    </Suspense>
+    </>
   )
 }
