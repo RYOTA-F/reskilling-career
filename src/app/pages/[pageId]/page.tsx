@@ -1,10 +1,7 @@
 import Pagination, { PAGE_TYPE } from '@/components/Pagination'
 import BlogCardList from '@/features/blogs/BlogCardList'
-// import { getPageData } from './getData'
-import { MicroCmsBlogUsecase } from '@/usecases/microCMS/blogs/usecaseBlogs.usecase'
-import { getPageOffset } from '@/utils/blogs/getPageOffset'
-import { getTotalPage } from '@/utils/blogs/getTotalPage'
 import { generateStaticParams } from './generateStaticParams'
+import { getPageData } from './page.data'
 
 export interface IPagesPageContext {
   params: {
@@ -14,13 +11,7 @@ export interface IPagesPageContext {
 
 export default async function PagesPage(context: IPagesPageContext) {
   const { pageId } = context.params
-  // const { blogs, totalPage } = await getPageData(Number(pageId))
-  const microCmsBlogUsecase = new MicroCmsBlogUsecase()
-  const { blogs, totalCount } = await microCmsBlogUsecase.getBlogs({
-    limit: true,
-    offset: getPageOffset(pageId),
-  })
-  const totalPage = getTotalPage(totalCount)
+  const { blogs, totalPage } = await getPageData(pageId)
 
   return (
     <>

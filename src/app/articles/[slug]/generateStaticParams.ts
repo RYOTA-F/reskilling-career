@@ -2,6 +2,7 @@ import { MicroCmsBlogUsecase } from '@/usecases/microCMS/blogs/usecaseBlogs.usec
 
 export async function generateStaticParams() {
   const microCmsBlogUsecase = new MicroCmsBlogUsecase()
+
   const { blogs } = await microCmsBlogUsecase.getAllBlogs()
 
   return blogs.map((blog) => ({

@@ -2,7 +2,7 @@ import BlogCardList from '@/features/blogs/BlogCardList'
 import CategoryDetailHeader from '@/features/categories/CategoryDetailHeader'
 import { generateMetadata } from './generateMetadata'
 import { generateStaticParams } from './generateStaticParams'
-import { getPageData } from './getData'
+import { getPageData } from './page.data'
 
 export interface ICategoriesPageContext {
   params: {
