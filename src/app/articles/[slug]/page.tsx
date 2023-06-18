@@ -2,7 +2,7 @@ import BlogDetailHeader from '@/features/blogs/BlogDetailHeader'
 import BlogBody from '@/features/blogs/BlogBody'
 import { generateMetadata } from './generateMetadata'
 import { generateStaticParams } from './generateStaticParams'
-import { getPageData } from './page.data'
+import { getPageData } from './getData'
 export interface IArticlesPageContext {
   params: {
     slug: string

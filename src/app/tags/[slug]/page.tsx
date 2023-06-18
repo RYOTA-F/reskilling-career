@@ -2,7 +2,7 @@ import BlogCardList from '@/features/blogs/BlogCardList'
 import TagDetailHeader from '@/features/tags/TagDetailHeader'
 import { generateMetadata } from './generateMetadata'
 import { generateStaticParams } from './generateStaticParams'
-import { getPageData } from './page.data'
+import { getPageData } from './getData'
 
 export interface ITagsPageContext {
   params: {

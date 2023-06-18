@@ -1,6 +1,6 @@
 import Pagination, { PAGE_TYPE } from '@/components/Pagination'
 import BlogCardList from '@/features/blogs/BlogCardList'
-import { getPageData } from './page.data'
+import { getPageData } from './getData'
 
 export interface IPagesPageContext {
   params: {
