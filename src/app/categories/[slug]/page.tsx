@@ -1,6 +1,7 @@
 import BlogCardList from '@/features/blogs/BlogCardList'
 import CategoryDetailHeader from '@/features/categories/CategoryDetailHeader'
 import { generateMetadata } from './generateMetadata'
+import { generateStaticParams } from './generateStaticParams'
 import { getPageData } from './page.data'
 
 export interface ICategoriesPageContext {
@@ -23,4 +24,4 @@ export default async function CategoriesPage(context: ICategoriesPageContext) {
   )
 }
 
-export { generateMetadata }
+export { generateMetadata, generateStaticParams }

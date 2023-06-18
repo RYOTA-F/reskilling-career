@@ -1,6 +1,7 @@
 import BlogCardList from '@/features/blogs/BlogCardList'
 import TagDetailHeader from '@/features/tags/TagDetailHeader'
 import { generateMetadata } from './generateMetadata'
+import { generateStaticParams } from './generateStaticParams'
 import { getPageData } from './page.data'
 
 export interface ITagsPageContext {
@@ -23,4 +24,4 @@ export default async function TagsPage(context: ITagsPageContext) {
   )
 }
 
-export { generateMetadata }
+export { generateMetadata, generateStaticParams }
