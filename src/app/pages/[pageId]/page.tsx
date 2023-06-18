@@ -1,8 +1,6 @@
-import Pagination from '@/components/Pagination'
+import Pagination, { PAGE_TYPE } from '@/components/Pagination'
 import BlogCardList from '@/features/blogs/BlogCardList'
-import { MicroCmsBlogUsecase } from '@/usecases/microCMS/blogs/usecaseBlogs.usecase'
-import { getPageOffset } from '@/utils/blogs/getPageOffset'
-import { generateStaticParams } from './generateStaticParams'
+import { getPageData } from './page.data'
 
 export interface IPagesPageContext {
   params: {
@@ -12,18 +10,16 @@ export interface IPagesPageContext {
 
 export default async function PagesPage(context: IPagesPageContext) {
   const { pageId } = context.params
-  const microCmsBlogUsecase = new MicroCmsBlogUsecase()
-  const { blogs } = await microCmsBlogUsecase.getBlogs({
-    limit: true,
-    offset: getPageOffset(pageId),
-  })
+  const { blogs, totalPage } = await getPageData(Number(pageId))
 
   return (
     <>
       <BlogCardList blogs={blogs} />
-      <Pagination />
+      <Pagination
+        currentPageType={PAGE_TYPE.PAGES}
+        currentPage={Number(pageId)}
+        totalPage={totalPage}
+      />
     </>
   )
 }
-
-export { generateStaticParams }
