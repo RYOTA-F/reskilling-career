@@ -7,7 +7,7 @@ import { getTotalPage } from '@/utils/blogs/getTotalPage'
 
 export interface IPagesPageContext {
   params: {
-    pageId: string
+    pageId: number
   }
 }
 
