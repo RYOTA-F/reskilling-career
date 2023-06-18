@@ -2,8 +2,7 @@ import BlogDetailHeader from '@/features/blogs/BlogDetailHeader'
 import BlogBody from '@/features/blogs/BlogBody'
 import { generateMetadata } from './generateMetadata'
 import { generateStaticParams } from './generateStaticParams'
-// import { getPageData } from './getData'
-import { MicroCmsBlogUsecase } from '@/usecases/microCMS/blogs/usecaseBlogs.usecase'
+import { getPageData } from './page.data'
 
 export interface IArticlesPageContext {
   params: {
@@ -13,10 +12,7 @@ export interface IArticlesPageContext {
 
 export default async function ArticlesPage(context: IArticlesPageContext) {
   const { slug } = context.params
-  // const { blog, tableOfContents, persedBody } = await getPageData(slug)
-  const microCmsBlogUsecase = new MicroCmsBlogUsecase()
-  const { blog, persedBody, tableOfContents } =
-    await microCmsBlogUsecase.getBlogByID(slug)
+  const { blog, tableOfContents, persedBody } = await getPageData(slug)
 
   return (
     <>
