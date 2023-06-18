@@ -8,6 +8,6 @@ export async function generateStaticParams() {
   const pages = [...new Array(totalPage)].map((_, i) => i + 1).splice(1)
 
   return pages.map((page) => ({
-    pageId: page,
+    pageId: String(page),
   }))
 }

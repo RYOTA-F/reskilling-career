@@ -4,10 +4,11 @@ import BlogCardList from '@/features/blogs/BlogCardList'
 import { MicroCmsBlogUsecase } from '@/usecases/microCMS/blogs/usecaseBlogs.usecase'
 import { getPageOffset } from '@/utils/blogs/getPageOffset'
 import { getTotalPage } from '@/utils/blogs/getTotalPage'
+import { generateStaticParams } from './generateStaticParams'
 
 export interface IPagesPageContext {
   params: {
-    pageId: number
+    pageId: string
   }
 }
 
@@ -17,7 +18,7 @@ export default async function PagesPage(context: IPagesPageContext) {
   const microCmsBlogUsecase = new MicroCmsBlogUsecase()
   const { blogs, totalCount } = await microCmsBlogUsecase.getBlogs({
     limit: true,
-    offset: getPageOffset(String(pageId)),
+    offset: getPageOffset(pageId),
   })
   const totalPage = getTotalPage(totalCount)
 
@@ -32,3 +33,5 @@ export default async function PagesPage(context: IPagesPageContext) {
     </>
   )
 }
+
+export { generateStaticParams }
