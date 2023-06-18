@@ -15,11 +15,11 @@ export default async function TopPage() {
   return (
     <>
       <BlogCardList blogs={blogs} />
-      {/* <Pagination
+      <Pagination
         currentPageType={PAGE_TYPE.ROOT}
         currentPage={1}
         totalPage={totalPage}
-      /> */}
+      />
     </>
   )
 }

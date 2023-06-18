@@ -24,11 +24,11 @@ export default async function PagesPage(context: IPagesPageContext) {
   return (
     <>
       <BlogCardList blogs={blogs} />
-      {/* <Pagination
+      <Pagination
         currentPageType={PAGE_TYPE.PAGES}
         currentPage={Number(pageId)}
         totalPage={totalPage}
-      /> */}
+      />
     </>
   )
 }
