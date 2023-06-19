@@ -1,8 +1,8 @@
 import BlogDetailHeader from '@/features/blogs/BlogDetailHeader'
 import BlogBody from '@/features/blogs/BlogBody'
-import { MicroCmsBlogUsecase } from '@/usecases/microCMS/blogs/usecaseBlogs.usecase'
-import { generateStaticParams } from './generateStaticParams'
 import { generateMetadata } from './generateMetadata'
+import { generateStaticParams } from './generateStaticParams'
+import { getPageData } from './page.data'
 
 export interface IArticlesPageContext {
   params: {
@@ -12,9 +12,7 @@ export interface IArticlesPageContext {
 
 export default async function ArticlesPage(context: IArticlesPageContext) {
   const { slug } = context.params
-  const microCmsBlogUsecase = new MicroCmsBlogUsecase()
-  const { blog, persedBody, tableOfContents } =
-    await microCmsBlogUsecase.getBlogByID(slug)
+  const { blog, tableOfContents, persedBody } = await getPageData(slug)
 
   return (
     <>
@@ -24,4 +22,4 @@ export default async function ArticlesPage(context: IArticlesPageContext) {
   )
 }
 
-export { generateStaticParams, generateMetadata }
+export { generateMetadata, generateStaticParams }

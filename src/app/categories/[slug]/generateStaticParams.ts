@@ -2,6 +2,7 @@ import { MicroCmsCategoryUsecase } from '@/usecases/microCMS/categories/usecaseC
 
 export async function generateStaticParams() {
   const microCmsCategoryUsecase = new MicroCmsCategoryUsecase()
+
   const categories = await microCmsCategoryUsecase.getCategories()
 
   return categories.map((category) => ({

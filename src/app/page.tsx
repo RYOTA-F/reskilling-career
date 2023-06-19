@@ -1,10 +1,18 @@
+import Pagination, { PAGE_TYPE } from '@/components/Pagination'
 import BlogCardList from '@/features/blogs/BlogCardList'
-import { MicroCmsBlogUsecase } from '@/usecases/microCMS/blogs/usecaseBlogs.usecase'
+import { getPageData } from './page.data'
 
 export default async function TopPage() {
-  const microCmsBlogUsecase = new MicroCmsBlogUsecase()
+  const { blogs, totalPage } = await getPageData()
 
-  const { blogs } = await microCmsBlogUsecase.getBlogs({ limit: true })
-
-  return <BlogCardList blogs={blogs} />
+  return (
+    <>
+      <BlogCardList blogs={blogs} />
+      <Pagination
+        currentPageType={PAGE_TYPE.ROOT}
+        currentPage={1}
+        totalPage={totalPage}
+      />
+    </>
+  )
 }

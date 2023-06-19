@@ -1,9 +1,8 @@
 import BlogCardList from '@/features/blogs/BlogCardList'
 import CategoryDetailHeader from '@/features/categories/CategoryDetailHeader'
-import { MicroCmsBlogUsecase } from '@/usecases/microCMS/blogs/usecaseBlogs.usecase'
-import { MicroCmsCategoryUsecase } from '@/usecases/microCMS/categories/usecaseCategories.usecase'
-import { generateStaticParams } from './generateStaticParams'
 import { generateMetadata } from './generateMetadata'
+import { generateStaticParams } from './generateStaticParams'
+import { getPageData } from './page.data'
 
 export interface ICategoriesPageContext {
   params: {
@@ -12,15 +11,8 @@ export interface ICategoriesPageContext {
 }
 
 export default async function CategoriesPage(context: ICategoriesPageContext) {
-  const microCmsBlogUsecase = new MicroCmsBlogUsecase()
-  const microCmsCategoryUsecase = new MicroCmsCategoryUsecase()
-
   const { slug } = context.params
-  const { category } = await microCmsCategoryUsecase.getCategoryByID(slug)
-  const { blogs } = await microCmsBlogUsecase.getBlogs({
-    limit: true,
-    filters: `categories[contains]${slug}`,
-  })
+  const { category, blogs } = await getPageData(slug)
 
   return (
     <>
@@ -32,4 +24,4 @@ export default async function CategoriesPage(context: ICategoriesPageContext) {
   )
 }
 
-export { generateStaticParams, generateMetadata }
+export { generateMetadata, generateStaticParams }
