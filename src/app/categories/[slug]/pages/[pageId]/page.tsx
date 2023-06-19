@@ -5,15 +5,18 @@ import { generateMetadata } from './generateMetadata'
 import { generateStaticParams } from './generateStaticParams'
 import { getPageData } from './page.data'
 
-export interface ICategoriesPageContext {
+export interface ICategoriesPagesPageContext {
   params: {
     slug: string
+    pageId: string
   }
 }
 
-export default async function CategoriesPage(context: ICategoriesPageContext) {
-  const { slug } = context.params
-  const { category, blogs, totalPage } = await getPageData(slug)
+export default async function CategoriesPagesPage(
+  context: ICategoriesPagesPageContext
+) {
+  const { slug, pageId } = context.params
+  const { category, blogs, totalPage } = await getPageData(slug, pageId)
 
   return (
     <>
@@ -22,7 +25,7 @@ export default async function CategoriesPage(context: ICategoriesPageContext) {
         <BlogCardList blogs={blogs} />
         <Pagination
           currentPageType={PAGE_TYPE.CATEGORIES}
-          currentPage={1}
+          currentPage={Number(pageId)}
           totalPage={totalPage}
           slug={slug}
         />

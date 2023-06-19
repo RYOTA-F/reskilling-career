@@ -6,14 +6,16 @@ export interface IPaginationItem {
   currentPageType: TPageType
   pageNumber: number
   isCurrentPage?: boolean
+  slug?: string
 }
 
 export default function PaginationItem({
   currentPageType,
   pageNumber,
   isCurrentPage,
+  slug,
 }: IPaginationItem) {
-  const pagePath = getPagePath(currentPageType, pageNumber)
+  const pagePath = getPagePath(currentPageType, pageNumber, slug)
 
   return (
     <div
