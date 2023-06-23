@@ -2,7 +2,7 @@ import { MicroCmsBlogUsecase } from '@/usecases/microCMS/blogs/usecaseBlogs.usec
 import { MicroCmsTagUsecase } from '@/usecases/microCMS/tags/usecaseTags.usecase'
 import { getTotalPage } from '@/utils/blogs/getTotalPage'
 
-export const getPageData = async (slug: string) => {
+export async function getPageData(slug: string, offset: string) {
   const microCmsBlogUsecase = new MicroCmsBlogUsecase()
   const microCmsTagUsecase = new MicroCmsTagUsecase()
 

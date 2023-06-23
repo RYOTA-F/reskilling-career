@@ -15,6 +15,10 @@ export const getPagePath = (
       return `${PAGE_TYPE.CATEGORIES}${slug}`
     case currentPageType === PAGE_TYPE.CATEGORIES:
       return `${PAGE_TYPE.CATEGORIES}${slug}${PAGE_TYPE.PAGES}${pageNumber}`
+    case currentPageType === PAGE_TYPE.TAGS && pageNumber === 1:
+      return `${PAGE_TYPE.TAGS}${slug}`
+    case currentPageType === PAGE_TYPE.TAGS:
+      return `${PAGE_TYPE.TAGS}${slug}${PAGE_TYPE.PAGES}${pageNumber}`
     default:
       return PAGE_TYPE.ROOT
   }
